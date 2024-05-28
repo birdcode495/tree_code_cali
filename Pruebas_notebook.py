@@ -6,6 +6,7 @@ from tkinter import messagebox
 import sqlite3
 from Base_datos_lista_especies import *
 from Pruebas2 import *
+from Fotografias_especies import *
 
 
 raiz = tk.Tk()
@@ -33,6 +34,7 @@ kali = tk.PhotoImage(file="Kali 888-logo2.png")
 spanish_name_jg = spanish_name
 english_name_jg = english_name
 scientific_name_jg = scientific_name
+tree_photos_jg = tree_photos
 
 
 nickname = tk.StringVar()
@@ -355,6 +357,31 @@ def createNewWindow():
 		miFrame.place(x=60, y=90)
 		#miFrame.config(padx=10, pady=20)
 
+		cipher = tk.Label(fr, textvariable=score, font=("Arial", 18))
+		cipher.place(x=630, y=392)
+		cipher.config(background="black", fg="#9DEFAD", width=16, height=4)
+
+		caesar = tk.Button(fr, text = "Decript ciphertext", command=lambda:caesar_audio())
+		caesar.config(fg = "green")
+		caesar.place(x=517, y=450)
+
+		caesar = tk.Button(fr, text = "Caesar cipher", command=lambda:caesar_audio())
+		caesar.config(fg = "green")
+		caesar.place(x=528, y=485)
+
+		key_label = tk.Label(fr, text = "Enter Key", font=("Comic Sans MS", 12))
+		key_label.place(x=525, y=380)
+		key_label.config(fg="#ffffff", bg="#02290A")
+
+		key_caesar = tk.Entry(fr, width=7, font=("Arial", 18))
+		key_caesar.config(fg="red", bg="black")
+		key_caesar.place(x=522, y=410)
+
+		text_type = tk.Label(fr, text = "Cipher text", font=("Lucida Calligraphy", 20))
+		text_type.place(x=655, y=345)
+		text_type.config(fg="#ffffff", bg="#02290A")
+
+
 		#------------------------fila 1-------------------------------------
 
 		botonQ = tk.Button(miFrame, text="A", font=("Comic Sans MS", 10), width=4, command=lambda:[letraPulsada("a"), guessSecretWord(), runOutGuess()])
@@ -561,6 +588,7 @@ conteo = 0
 def tree_graphics():
 
 	global conteo
+	global tree_photos_jg
 
 	raiz = tk.Toplevel()
 	raiz.title("TREE CODE")
@@ -572,11 +600,10 @@ def tree_graphics():
 	x = 0
 	crtPlayersonido = "createPlayer.wav"
 
-	pantallas = [[tk.PhotoImage(file="Primera_pantalla5.png"), tk.PhotoImage(file="Acacia_rubiniaesc.png")], 
-	[tk.PhotoImage(file="Mangifera indica2.png")]]
+	pantallas = tk.PhotoImage(file = tree_photos_jg[0][0])
 	#prim_pantalla = tk.PhotoImage(file="Primera_pantalla5.png")
 	#seg_pantalla = tk.PhotoImage(file="Acacia_rubiniaesc.png")
-	Presentacion = tk.Label(marcoPresnt, image=pantallas[0][0])
+	Presentacion = tk.Label(marcoPresnt, image=pantallas)
 	Presentacion.pack()
 
 	but = tk.Button(marcoPresnt, text = 'Change', command = lambda:changes())
@@ -587,14 +614,18 @@ def tree_graphics():
 	def changes():
 
 		global conteo
+		global pantallas
+
+		#grupo = tree_photos_jg
 
 		playsound(crtPlayersonido)
-		Presentacion.config(image=pantallas[0][conteo+1])
+		pantallas = tk.PhotoImage(file = tree_photos_jg[0][conteo + 1])
+		Presentacion.config(image=pantallas)
 		but.config(text="Cambia")
 		conteo = conteo + 1
 
 
-		if conteo == len(pantallas[0]) - 1:
+		if conteo == len(tree_photos_jg[0]) - 1:
 
 			conteo = -1
 

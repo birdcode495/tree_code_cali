@@ -23,7 +23,7 @@ def tree_graphics():
 	x = 0
 	crtPlayersonido = "createPlayer.wav"
 
-	pantallas = [[tk.PhotoImage(file="Primera_pantalla5.png"), tk.PhotoImage(file="Acacia_rubiniaesc.png")], 
+	pantallas = [[tk.PhotoImage(file="Primera_pantalla5.png"), tk.PhotoImage(file="Acacia_rubinia1.png")], 
 	[tk.PhotoImage(file="Mangifera indica2.png")]]
 	#prim_pantalla = tk.PhotoImage(file="Primera_pantalla5.png")
 	#seg_pantalla = tk.PhotoImage(file="Acacia_rubiniaesc.png")
