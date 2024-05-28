@@ -373,7 +373,9 @@ def createNewWindow():
 		key_label.place(x=525, y=380)
 		key_label.config(fg="#ffffff", bg="#02290A")
 
-		key_caesar = tk.Entry(fr, width=7, font=("Arial", 18))
+		keyInput = StringVar()
+
+		key_caesar = tk.Entry(fr, textvariable = keyInput, width=7, font=("Arial", 18))
 		key_caesar.config(fg="red", bg="black")
 		key_caesar.place(x=522, y=410)
 
