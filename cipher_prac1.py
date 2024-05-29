@@ -1,7 +1,11 @@
 
 # Caesar Cipher Notebook 1
 
+from CipherTexts import *
+
 MAX_KEY_SIZE = 26
+
+cipherText_nbk1_jg = cipherText_nbk1
 
 
 def getMode():
@@ -28,8 +32,9 @@ def getMessage():
 
 	# return message
 
-	print('Enter your message: ')
-	return input()
+	message = cipherText_nbk1_jg[0]
+
+	return message
 
 def getKey():
 

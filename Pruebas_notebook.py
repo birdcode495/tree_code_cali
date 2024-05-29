@@ -7,6 +7,7 @@ import sqlite3
 from Base_datos_lista_especies import *
 from Pruebas2 import *
 from Fotografias_especies import *
+from CipherTexts import *
 
 
 raiz = tk.Tk()
@@ -38,7 +39,11 @@ tree_photos_jg = tree_photos
 
 
 nickname = tk.StringVar()
+keyInput = tk.StringVar()
+text_cipher_var = tk.StringVar()
 
+
+cipherText_nbk1_jg = cipherText_nbk1
 score = 0
 scoreAcumulado = 0
 lifes = -1
@@ -275,7 +280,13 @@ def createNewWindow():
 	global iniRiddle
 	global Verd2
 	global marcoAhorc
-	
+	global cipherText_nbk1_jg
+	global keyInput
+	global mode
+	global message_nbk1
+	global key_nbk1
+	global text_cipher_var
+		
 
 	if passedMissions == mision and nickname.get() != "" and lifes >= 0 and language != "":
 
@@ -339,6 +350,8 @@ def createNewWindow():
 		s1 = ttk.Style()
 		s1.configure("Jimmy.TButton", background="#02290A", foreground="#ffffff")
 
+		text_cipher_var = tk.StringVar(value=cipherText_nbk1_jg[0])
+
 		# l1 = ttk.Label(text="Test", style="BW.TLabel")
 		# l2 = ttk.Label(text="Test", style="BW.TLabel")
 
@@ -357,11 +370,11 @@ def createNewWindow():
 		miFrame.place(x=60, y=90)
 		#miFrame.config(padx=10, pady=20)
 
-		cipher = tk.Label(fr, textvariable=score, font=("Arial", 18))
+		cipher = tk.Label(fr, textvariable=text_cipher_var, font=("Arial", 9))
 		cipher.place(x=630, y=392)
-		cipher.config(background="black", fg="#9DEFAD", width=16, height=4)
+		cipher.config(background="black", fg="#ffffff", width=45, height=7)
 
-		caesar = tk.Button(fr, text = "Decript ciphertext", command=lambda:caesar_audio())
+		caesar = tk.Button(fr, text = "Decrypt ciphertext", command=lambda:getTranslatedMessage(cipherMode(), getMessage(), getKey_nbk1()))
 		caesar.config(fg = "green")
 		caesar.place(x=517, y=450)
 
@@ -373,9 +386,7 @@ def createNewWindow():
 		key_label.place(x=525, y=380)
 		key_label.config(fg="#ffffff", bg="#02290A")
 
-		keyInput = StringVar()
-
-		key_caesar = tk.Entry(fr, textvariable = keyInput, width=7, font=("Arial", 18))
+		key_caesar = tk.Entry(fr, textvariable=keyInput, width=7, font=("Arial", 18), justify="center")
 		key_caesar.config(fg="red", bg="black")
 		key_caesar.place(x=522, y=410)
 
@@ -582,6 +593,107 @@ def createNewWindow():
 	elif language == "":
 
 		messagebox.showinfo(parent=raiz, message = "You must choose a language first")
+
+
+modeCount = 0
+
+
+def cipherMode():
+
+	global modeCount
+	
+	modeCount += 1
+
+	if modeCount % 2 != 0:
+
+		mode = 'd'
+
+	else:
+		mode = 'e'
+
+	return mode
+
+
+def getMessage():
+
+	global message2
+
+	#global text_cipher_var
+
+	message = text_cipher_var.get()
+
+	return message
+
+
+def getKey_nbk1():
+
+	global keyInput
+	
+	key = int(keyInput.get())
+
+	return key
+	print(key)
+
+
+
+
+
+def getTranslatedMessage(mode, message, key):
+
+	#global text_cipher_var
+
+	if mode == 'd':
+
+		key = -key
+
+	translated = ''
+
+	#message2 = message.get()
+
+	#text_cipher_var.set(value='')
+
+	letr = message[0]
+
+	for i in range(len(message)): 
+		
+		if letr.isalpha():
+
+			num = ord(letr)
+			num += key
+
+			if letr.isupper():
+
+				if num > ord('Z'):
+					num -= 26
+
+				elif num < ord('A'):
+					num += 26
+
+			elif letr.islower():
+
+				if num > ord('z'):
+					num -= 26
+
+				elif num < ord('a'):
+					num += 26
+
+			translated += chr(num)
+
+			text_cipher_var.set(text_cipher_var.get()[:i] + chr(num))
+
+
+		else:
+			translated += symbol
+			#text_cipher_var.set(text_cipher_var.get() + symbol)
+
+	
+
+	
+
+
+# mode_nbk1 = cipherMode()
+# message_nbk1 = getMessage()
+# key_nbk1 = getKey_nbk1()
 
 
 
