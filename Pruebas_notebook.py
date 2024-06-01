@@ -37,6 +37,7 @@ spanish_name_jg = spanish_name
 english_name_jg = english_name
 scientific_name_jg = scientific_name
 tree_photos_jg = tree_photos
+keys_nbk1_jg = keys_nbk1
 
 cipherText_nbk1_jg = cipherText_nbk1
 
@@ -46,7 +47,7 @@ indic = random.randint(0, len(fd) - 1)
 
 nickname = tk.StringVar()
 keyInput = tk.StringVar()
-text_cipher_var = tk.StringVar(value=cipherText_nbk1_jg[indic])
+text_cipher_var = tk.StringVar(value=cipherText_nbk1_jg[1])
 
 
 
@@ -356,7 +357,7 @@ def createNewWindow():
 		s1 = ttk.Style()
 		s1.configure("Jimmy.TButton", background="#02290A", foreground="#ffffff")
 
-		text_cipher_var = tk.StringVar(value=cipherText_nbk1_jg[indic])
+		text_cipher_var = tk.StringVar(value=cipherText_nbk1_jg[1])
 
 		# l1 = ttk.Label(text="Test", style="BW.TLabel")
 		# l2 = ttk.Label(text="Test", style="BW.TLabel")
@@ -376,9 +377,9 @@ def createNewWindow():
 		miFrame.place(x=60, y=90)
 		#miFrame.config(padx=10, pady=20)
 
-		cipher = tk.Label(fr, textvariable=text_cipher_var, font=("Arial", 9))
+		cipher = tk.Label(fr, textvariable=text_cipher_var, font=("Arial", 8), padx=4)
 		cipher.place(x=650, y=392)
-		cipher.config(background="black", fg="#ffffff", width=30, height=7)
+		cipher.config(background="black", fg="#ffffff", width=36, height=8)
 
 		caesar = tk.Button(fr, text = "Decrypt ciphertext", command=lambda:getTranslatedMessage(cipherMode(), getMessage(), getKey_nbk1()))
 		caesar.config(fg = "green")
@@ -626,7 +627,7 @@ def getMessage():
 
 	#global text_cipher_var
 
-	text_cipher_var = tk.StringVar(value=cipherText_nbk1_jg[indic])
+	text_cipher_var = tk.StringVar(value=cipherText_nbk1_jg[1])
 
 	message = text_cipher_var.get()
 
@@ -646,6 +647,7 @@ def getKey_nbk1():
 def getTranslatedMessage(mode, message, key):
 
 	global cipher
+	global keys_nbk1_jg
 
 	# #global text_cipher_var
 
@@ -710,10 +712,10 @@ def getTranslatedMessage(mode, message, key):
 
 		y = y + 1
 
-	if key != 7:
+	if key != keys_nbk1_jg[1]:
 
 		time.sleep(3)
-		text_cipher_var.set(cipherText_nbk1_jg[indic])
+		text_cipher_var.set(cipherText_nbk1_jg[1])
 
 
 conteo = 0

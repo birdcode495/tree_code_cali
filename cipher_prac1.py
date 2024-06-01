@@ -32,7 +32,9 @@ def getMessage():
 
 	# return message
 
-	message = cipherText_nbk1_jg[0]
+	#message = cipherText_nbk1_jg[0]
+
+	message = input("Ingrese mensaje: ")
 
 	return message
 
