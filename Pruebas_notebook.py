@@ -8,6 +8,7 @@ from Base_datos_lista_especies import *
 from Pruebas2 import *
 from Fotografias_especies import *
 from CipherTexts import *
+import time
 
 
 raiz = tk.Tk()
@@ -37,13 +38,18 @@ english_name_jg = english_name
 scientific_name_jg = scientific_name
 tree_photos_jg = tree_photos
 
+cipherText_nbk1_jg = cipherText_nbk1
+
+fd = [0, 1]
+
+indic = random.randint(0, len(fd) - 1)
 
 nickname = tk.StringVar()
 keyInput = tk.StringVar()
-text_cipher_var = tk.StringVar()
+text_cipher_var = tk.StringVar(value=cipherText_nbk1_jg[indic])
 
 
-cipherText_nbk1_jg = cipherText_nbk1
+
 score = 0
 scoreAcumulado = 0
 lifes = -1
@@ -350,7 +356,7 @@ def createNewWindow():
 		s1 = ttk.Style()
 		s1.configure("Jimmy.TButton", background="#02290A", foreground="#ffffff")
 
-		text_cipher_var = tk.StringVar(value=cipherText_nbk1_jg[0])
+		text_cipher_var = tk.StringVar(value=cipherText_nbk1_jg[indic])
 
 		# l1 = ttk.Label(text="Test", style="BW.TLabel")
 		# l2 = ttk.Label(text="Test", style="BW.TLabel")
@@ -371,8 +377,8 @@ def createNewWindow():
 		#miFrame.config(padx=10, pady=20)
 
 		cipher = tk.Label(fr, textvariable=text_cipher_var, font=("Arial", 9))
-		cipher.place(x=630, y=392)
-		cipher.config(background="black", fg="#ffffff", width=45, height=7)
+		cipher.place(x=650, y=392)
+		cipher.config(background="black", fg="#ffffff", width=30, height=7)
 
 		caesar = tk.Button(fr, text = "Decrypt ciphertext", command=lambda:getTranslatedMessage(cipherMode(), getMessage(), getKey_nbk1()))
 		caesar.config(fg = "green")
@@ -391,7 +397,7 @@ def createNewWindow():
 		key_caesar.place(x=522, y=410)
 
 		text_type = tk.Label(fr, text = "Cipher text", font=("Lucida Calligraphy", 20))
-		text_type.place(x=655, y=345)
+		text_type.place(x=675, y=345)
 		text_type.config(fg="#ffffff", bg="#02290A")
 
 
@@ -587,7 +593,7 @@ def createNewWindow():
 		btquitP.place(x=390, y=475)
 
 		kali888 = tk.Label(fr, image = kali)
-		kali888.place(x=880, y=400)
+		kali888.place(x=890, y=390)
 
 
 	elif language == "":
@@ -620,6 +626,8 @@ def getMessage():
 
 	#global text_cipher_var
 
+	text_cipher_var = tk.StringVar(value=cipherText_nbk1_jg[indic])
+
 	message = text_cipher_var.get()
 
 	return message
@@ -632,34 +640,39 @@ def getKey_nbk1():
 	key = int(keyInput.get())
 
 	return key
-	print(key)
-
-
 
 
 
 def getTranslatedMessage(mode, message, key):
 
-	#global text_cipher_var
+	global cipher
 
-	if mode == 'd':
+	# #global text_cipher_var
 
-		key = -key
+	if mode == 'e':
 
-	translated = ''
+	 	key = -key
 
-	#message2 = message.get()
+	# translated = ''
 
-	#text_cipher_var.set(value='')
+	# #message2 = message.get()
 
-	letr = message[0]
+	# #text_cipher_var.set(value='')
 
-	for i in range(len(message)): 
+	
+
+	y = 0
+
+	while y < len(message):
+
+		letr = message[y]
 		
 		if letr.isalpha():
 
+
+
 			num = ord(letr)
-			num += key
+			num -= key
 
 			if letr.isupper():
 
@@ -677,24 +690,30 @@ def getTranslatedMessage(mode, message, key):
 				elif num < ord('a'):
 					num += 26
 
-			translated += chr(num)
+			#translated += chr(num)
 
-			text_cipher_var.set(text_cipher_var.get()[:i] + chr(num))
+			text_cipher_var.get()
 
+			text_cipher_var.set(text_cipher_var.get()[:y] + chr(num))
+			#cipher.config(justify="center")
 
 		else:
-			translated += symbol
-			#text_cipher_var.set(text_cipher_var.get() + symbol)
 
-	
+			symbol = message[y]
 
-	
+			text_cipher_var.get()
 
+			text_cipher_var.set(text_cipher_var.get()[:y] + symbol)
 
-# mode_nbk1 = cipherMode()
-# message_nbk1 = getMessage()
-# key_nbk1 = getKey_nbk1()
+		# 	#translated += symbol
+	 		
 
+		y = y + 1
+
+	if key != 7:
+
+		time.sleep(3)
+		text_cipher_var.set(cipherText_nbk1_jg[indic])
 
 
 conteo = 0
@@ -703,6 +722,7 @@ def tree_graphics():
 
 	global conteo
 	global tree_photos_jg
+	global indice
 
 	raiz = tk.Toplevel()
 	raiz.title("TREE CODE")
@@ -714,7 +734,7 @@ def tree_graphics():
 	x = 0
 	crtPlayersonido = "createPlayer.wav"
 
-	pantallas = tk.PhotoImage(file = tree_photos_jg[0][0])
+	pantallas = tk.PhotoImage(file = tree_photos_jg[indice][0])
 	#prim_pantalla = tk.PhotoImage(file="Primera_pantalla5.png")
 	#seg_pantalla = tk.PhotoImage(file="Acacia_rubiniaesc.png")
 	Presentacion = tk.Label(marcoPresnt, image=pantallas)
@@ -729,17 +749,18 @@ def tree_graphics():
 
 		global conteo
 		global pantallas
+		global indice
 
 		#grupo = tree_photos_jg
 
 		playsound(crtPlayersonido)
-		pantallas = tk.PhotoImage(file = tree_photos_jg[0][conteo + 1])
+		pantallas = tk.PhotoImage(file = tree_photos_jg[indice][conteo + 1])
 		Presentacion.config(image=pantallas)
 		but.config(text="Cambia")
 		conteo = conteo + 1
 
 
-		if conteo == len(tree_photos_jg[0]) - 1:
+		if conteo == len(tree_photos_jg[indice]) - 1:
 
 			conteo = -1
 
@@ -799,6 +820,7 @@ def finishMision():
 		del spanish_name_jg[indice]
 		del english_name_jg[indice]
 		del scientific_name_jg[indice]
+		del tree_photos_jg[indice]
 
 		conexion2 = sqlite3.connect("players")
 		cursor2 = conexion2.cursor()

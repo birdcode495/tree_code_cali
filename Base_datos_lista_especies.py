@@ -22,7 +22,19 @@ spanish_name = ["acacia rubinia", "palma areca", "limon swinglea", "mango", "cau
 
 english_name = ["wattle", "golden cane palm", "tabog", "mango", "weeping fig", "ebano", "country almond", "monkeypod tree", "white leadtree",
 "rain tree", "west indian elm", "spanish lime", "calabash tree", "kapok", "cannonball tree", "panama tree", "soursop", "false mesquite, stickpea",
- "mother of water", "mountain immortelle", "american muskwood", "rose apple", "prickly ash", "palo de cruz", "west indian locust", "wild cashew", 
- "genip tree", "common bamboo", "bay", "blackbead", "siete cueros", "balsa tree", "colombian timber bamboo", "fig", "savannah palm", "venezuelan willow", 
- "wild ackee", "basul", "matchwood", "beach apple", "", "olive-leaf podoberry", "rosy trumpet tree", "manila palm", "royal palm", "african tulip tree", 
- "gualanday", "philippine pigeonwings", "pheasantwood", "cananga tree"]
+"mother of water", "mountain immortelle", "american muskwood", "rose apple", "prickly ash", "palo de cruz", "west indian locust", "wild cashew", 
+"genip tree", "common bamboo", "bay", "blackbead", "siete cueros", "balsa tree", "colombian timber bamboo", "fig", "savannah palm", "venezuelan willow", 
+"wild ackee", "basul", "matchwood", "beach apple", "Burilico", "olive-leaf podoberry", "rosy trumpet tree", "manila palm", "royal palm", "african tulip tree", 
+"gualanday", "philippine pigeonwings", "pheasantwood", "cananga tree"]
+
+
+
+print(len(scientific_name))
+print(len(spanish_name))
+print(len(english_name))
+
+
+
+ 
+
+

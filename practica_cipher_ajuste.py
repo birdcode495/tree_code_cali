@@ -142,9 +142,6 @@ def getTranslatedMessage(mode, message, key):
 
 			text_cipher_var.set(text_cipher_var.get()[:y] + symbol)
 
-		# 	#translated += symbol
-	 		
-
 		y = y + 1
 
 
