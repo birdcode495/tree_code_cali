@@ -9,6 +9,8 @@ from Pruebas2 import *
 from Fotografias_especies import *
 from CipherTexts import *
 import time
+import pygame
+
 
 
 raiz = tk.Tk()
@@ -867,19 +869,29 @@ def finishMision():
 
 def exampleUse():
 
-	global exceUse
-	global idiomExamples
+	pygame.init()
 
-	if guessSecWord == False:
+	width = 800
+	height = 600
 
-		playsound(exceUse)
+	window = pygame.display.set_mode((width, height))
 
-	else:
+	run = True
 
-		playsound(idiomExamples[indice])
+	while run:
+
+		for event in pygame.event.get():
+
+			if event.type == pygame.QUIT:
+
+				run = False
 
 
-conteo = 0
+	pygame.quit()
+
+
+
+
 
 
 
