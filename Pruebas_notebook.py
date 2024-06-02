@@ -10,6 +10,7 @@ from Fotografias_especies import *
 from CipherTexts import *
 import time
 import pygame
+from Personajes import Personaje
 
 
 
@@ -869,22 +870,32 @@ def finishMision():
 
 def exampleUse():
 
+	
+
 	pygame.init()
+
+	player = Personaje(200, 300)
 
 	width = 800
 	height = 600
 
 	window = pygame.display.set_mode((width, height))
 
+	pygame.display.set_caption("TreeCode Fight")
+
 	run = True
 
 	while run:
+
+		player.draw(window)
 
 		for event in pygame.event.get():
 
 			if event.type == pygame.QUIT:
 
 				run = False
+
+		pygame.display.update()
 
 
 	pygame.quit()
