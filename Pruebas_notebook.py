@@ -33,6 +33,8 @@ explanGem = "explnGems.wav"
 gemsGanadas = 0
 kali = tk.PhotoImage(file="Kali 888-logo4.png")
 caesar_img = tk.PhotoImage(file="Caesar_cipher.png")
+TreeCode_logo = tk.PhotoImage(file="TreeCode_white4.png")
+branch = tk.PhotoImage(file="Branches6.png")
 
 spanish_name_jg = spanish_name
 english_name_jg = english_name
@@ -48,7 +50,7 @@ indic = random.randint(0, len(fd) - 1)
 
 nickname = tk.StringVar()
 keyInput = tk.StringVar()
-text_cipher_var = tk.StringVar(value=cipherText_nbk1_jg[12])
+text_cipher_var = tk.StringVar(value=cipherText_nbk1_jg[14])
 
 
 
@@ -245,9 +247,11 @@ Verd = tk.PhotoImage(file="Verdugo200.png")
 Verd2 = tk.PhotoImage(file="VerdugoPass1.png")
 jimmy_es = "jim-fin-es.wav"
 jimmy_en = "jim-final-en.wav"
-imnUse = tk.PhotoImage(file="IdiomUse.png")
+imnUse = tk.PhotoImage(file="Couroupita_guianensis4a.png")
 coinbatt = tk.PhotoImage(file="Coin.png")
 gembatt = tk.PhotoImage(file="Diamond Tree-logo4.png")
+leaf1 = tk.PhotoImage(file="Leaf_white2.png")
+leaf2c = tk.PhotoImage(file="Leaf2a.png")
 exceUse = "exceptEx.mp3"
 risaJim = "Risa_Jimmy.wav"
 gemLostt = "Lost_tree.wav"
@@ -336,7 +340,7 @@ def createNewWindow():
 
 
 		listMision[mision] = tk.Toplevel(raiz)
-		listMision[mision].geometry("995x600")
+		listMision[mision].geometry("995x625")
 		listMision[mision].title("TREE CODE")
 		listMision[mision].resizable(0,0)
 		listMision[mision].config(bg="#02290A")
@@ -344,12 +348,12 @@ def createNewWindow():
 		notebk = ttk.Notebook(listMision[mision])
 		notebk.pack(expand=True)
 		
-		fr = ttk.Frame(notebk, width = 995, height=600)
+		fr = ttk.Frame(notebk, width = 995, height=625)
 		fr.configure(style = "BW.TLabel")
 		fr.pack(fill='both', expand=True)
 		notebk.add(fr, text = "   Bio Hangman Cali")
 
-		fr2 = ttk.Frame(notebk, width = 995, height=600)
+		fr2 = ttk.Frame(notebk, width = 995, height=625)
 		fr2.pack(fill='both', expand=True)
 		notebk.add(fr2, text = "   Urban Criptography")
 
@@ -359,7 +363,7 @@ def createNewWindow():
 		s1 = ttk.Style()
 		s1.configure("Jimmy.TButton", background="#02290A", foreground="#ffffff")
 
-		text_cipher_var = tk.StringVar(value=cipherText_nbk1_jg[12])
+		text_cipher_var = tk.StringVar(value=cipherText_nbk1_jg[14])
 
 		# l1 = ttk.Label(text="Test", style="BW.TLabel")
 		# l2 = ttk.Label(text="Test", style="BW.TLabel")
@@ -367,43 +371,45 @@ def createNewWindow():
 		#munecoAhorc = tk.PhotoImage(file83ahorcado2.png")
 		marcoAhorc = tk.Button(fr, image=Verd, command=lambda:jim())
 		marcoAhorc.config(background="#02290A")
-		marcoAhorc.place(x=90, y=370)
+		marcoAhorc.place(x=90, y=335)
 
-		
+		branches = tk.Label(fr, image = branch)
+		branches.place(x=63, y=500)
+		branches.config(bg="#02290A")
 
-		Bienvenida = ttk.Label(fr, text="TREE CODE", font=("Comic Sans MS", 27), style = "BW.TLabel")
+		Bienvenida = ttk.Label(fr, text="BIO HANG", font=("Comic Sans MS", 27), style = "BW.TLabel")
 		#Bienvenida.configure(fg="#ffffff", bg="#02290A", padx=10)
-		Bienvenida.place(x=80, y=50)
+		Bienvenida.place(x=73, y=10)
 
 		miFrame = tk.Frame(fr)
-		miFrame.place(x=60, y=120)
+		miFrame.place(x=60, y=80)
 		#miFrame.config(padx=10, pady=20)
 
-		cipher = tk.Label(fr, textvariable=text_cipher_var, font=("Arial", 8), padx=4)
-		cipher.place(x=680, y=392)
-		cipher.config(background="black", fg="#ffffff", width=39, height=11, padx=6)
+		cipher = tk.Label(fr, textvariable=text_cipher_var, font=("Arial", 8), padx=5)
+		cipher.place(x=680, y=412)
+		cipher.config(background="black", fg="#ffffff", width=41, height=12, padx=6)
 
 		caesar = tk.Button(fr, text = "Decrypt ciphertext", command=lambda:getTranslatedMessage(cipherMode(), getMessage(), getKey_nbk1()))
 		caesar.config(fg = "green")
-		caesar.place(x=547, y=420)
+		caesar.place(x=547, y=440)
 
 		caesar = tk.Button(fr, text = "Caesar cipher", command=lambda:caesar_audio())
 		caesar.config(fg = "green")
-		caesar.place(x=558, y=530)
+		caesar.place(x=558, y=550)
 
 		caesar_image = tk.Label(fr, image = caesar_img)
-		caesar_image.place(x=545, y=460)
+		caesar_image.place(x=545, y=480)
 
 		key_label = tk.Label(fr, text = "Enter Key", font=("Comic Sans MS", 12))
-		key_label.place(x=560, y=350)
+		key_label.place(x=560, y=370)
 		key_label.config(fg="#ffffff", bg="#02290A")
 
 		key_caesar = tk.Entry(fr, textvariable=keyInput, width=7, font=("Arial", 18), justify="center")
 		key_caesar.config(fg="red", bg="black")
-		key_caesar.place(x=552, y=380)
+		key_caesar.place(x=552, y=400)
 
 		text_type = tk.Label(fr, text = "Cipher text", font=("Lucida Calligraphy", 20))
-		text_type.place(x=720, y=345)
+		text_type.place(x=720, y=365)
 		text_type.config(fg="#ffffff", bg="#02290A")
 
 
@@ -557,23 +563,23 @@ def createNewWindow():
 		etiqMissLetters.config(fg="#ffffff", bg="#02290A")
 
 		displMissLetters = tk.Entry(fr, textvariable=missedLetters, font=("Arial", 13))
-		displMissLetters.place(x=515, y=170)
+		displMissLetters.place(x=515, y=160)
 		displMissLetters.config(width=35, background="black", fg="green", justify="center")
 
 		etiqScore = tk.Label(fr, text="Score", font=("Lucida Calligraphy", 20))
-		etiqScore.place(x=335, y=360)
+		etiqScore.place(x=335, y=420)
 		etiqScore.config(fg="#ffffff", bg="#02290A")
 
 		displScore = tk.Label(fr, textvariable=score, font=("Arial", 34))
-		displScore.place(x=295, y=400)
+		displScore.place(x=295, y=465)
 		displScore.config(background="black", fg="#9DEFAD", justify="center", width=6)
 
 		btMeans = tk.Button(fr, image=graphic, command=lambda:tree_graphics())
 		btMeans.config(fg="green")
-		btMeans.place(x=490, y=240)
+		btMeans.place(x=600, y=235)
 
 		btUse = tk.Button(fr, image=imnUse, command=lambda:exampleUse())
-		btUse.place(x=610, y=240)
+		btUse.place(x=500, y=230)
 
 		btCoin = tk.Button(fr, image=coinbatt, command=lambda:explicCoins())
 		btCoin.place(x=730, y=240)
@@ -592,14 +598,26 @@ def createNewWindow():
 
 		btFinish = tk.Button(fr, text="Finish riddle", font=("Comic Sans MS", 11), command=lambda:finishMision())
 		btFinish.config(fg="green")
-		btFinish.place(x=280, y=475)
+		btFinish.place(x=280, y=530)
 
 		btquitP = tk.Button(fr, text="Quit game", font=("Comic Sans MS", 11), command=lambda:quitMision())
 		btquitP.config(fg="green")
-		btquitP.place(x=390, y=475)
+		btquitP.place(x=390, y=530)
 
-		kali888 = tk.Label(fr, image = kali)
-		kali888.place(x=20, y=20)
+		# kali888 = tk.Label(fr, image = kali)
+		# kali888.place(x=20, y=20)
+
+		leaves1 = tk.Label(fr, image = leaf1)
+		leaves1.place(x=924, y=6)
+		leaves1.config(bg="#02290A")
+
+		leaves2 = tk.Label(fr, image = leaf2c)
+		leaves2.place(x=10, y=530)
+		leaves2.config(bg="#02290A")
+
+		TreeCode_log = tk.Label(fr, image=TreeCode_logo)
+		TreeCode_log.place(x=300, y=140)
+		TreeCode_log.config(bg="#02290A")
 
 		
 
@@ -634,7 +652,7 @@ def getMessage():
 
 	#global text_cipher_var
 
-	text_cipher_var = tk.StringVar(value=cipherText_nbk1_jg[12])
+	text_cipher_var = tk.StringVar(value=cipherText_nbk1_jg[14])
 
 	message = text_cipher_var.get()
 
@@ -719,10 +737,10 @@ def getTranslatedMessage(mode, message, key):
 
 		y = y + 1
 
-	if key != keys_nbk1_jg[12]:
+	if key != keys_nbk1_jg[14]:
 
 		time.sleep(2)
-		text_cipher_var.set(cipherText_nbk1_jg[12])
+		text_cipher_var.set(cipherText_nbk1_jg[14])
 
 
 conteo = 0

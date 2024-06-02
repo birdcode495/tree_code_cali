@@ -100,7 +100,30 @@ pybgurf, genlf gb pneel sehvgf, rgp. Guhf gur
 gbghzn ercynprf nzbat gur angvirf bs gur 
 Nzrevpna gebcvp, gur terrx nzcuben naq gur 
 Yngva cngren, ybnqrq jvgu vafpevcgvbaf naq 
-flzobyvfzf.''']
+flzobyvfzf.''',
+'''Qeb Hxmlh exp jriqfmib rpbp, jxfkiv qeb 
+zlqqlkv cfybo qexq proolrkap qeb pbbap (hxmlh) 
+fp rpba fk qeb jxkrcxzqrob lc sxoflrp lygbzqp,fq 
+fp xipl rpba lokxjbkqxiiv xka fk obclobpqxqflk, 
+fqp tlla fp rpba fk zlkpqorzqflk, zxombkqov xka 
+xp crbi. Fk pljb mixzbp mxoqp lc qeb mixkq xob 
+zlkprjba, qeb pbba lfi fp rpba fkarpqofxiiv ql 
+jxhb jxodxofkb, qeb obpfarb lyqxfkba xcqbo 
+buqoxzqfkd qeb lfi fp rpba xp claabo. Qeb pbba 
+fp zlkprjba zllhba lo olxpqba xka qeb ibxsbp, 
+ciltbop xka qbkabo corfqp xob rprxiiv bxqbk zllhba.''',
+'''Bpm tmidma, ntwemza ivl jizs wn Kivvwvjitt 
+bzmm izm caml qv qvncaqwva bw bzmib 
+pgxmzbmvaqwv, bcuwza, xiqv ivl qvntiuuibwzg 
+xzwkmaama. Bpm rcqkm wn bpm tmidma qa 
+caml nwz asqv kwvlqbqwva. Bpm qvaqlm wn 
+bpm nzcqb qa caml bw lqaqvnmkb ewcvla 
+ivl bpm gwcvo tmidma bw kczm bwwbpikpm. 
+Qb qa kwvaqlmzml i uiabmz xtivb ivl qa 
+caml qv Iuihwvqiv lqmba qv Xmzc bw 
+abzmvobpmv bpm ixxzmvbqkma wn Iuihwvqiv 
+umlqkqvm. Qb qa bpm Wnnqkqit Bzmm wn 
+BzmmKwlm Xzwrmkb.''']
 
 plainText_nbk1 = ['''Ornamental tree of showy 
 flowering; by the form of its 
@@ -108,7 +131,7 @@ crown it produces an excellent shade.
 Nitrogen fixing species suitable for 
 the recovery of eroded soils.''']
 
-keys_nbk1 =[7, 9, 11, 14, 16, 18, 21, 4, 22, 24, 19, 7, 13]
+keys_nbk1 =[7, 9, 11, 14, 16, 18, 21, 4, 22, 24, 19, 7, 13, 23, 8]
 
 
 #print(cipherText_nbk1[0])
