@@ -883,6 +883,7 @@ def exampleUse():
 
 	pygame.display.set_caption("TreeCode Fight")
 
+	
 	run = True
 
 	while run:
@@ -894,6 +895,24 @@ def exampleUse():
 			if event.type == pygame.QUIT:
 
 				run = False
+
+			if event.type == pygame.KEYDOWN:
+
+				if event.key == pygame.K_a:
+
+					print("Left")
+
+				if event.key == pygame.K_d:
+
+					print("Right")
+
+				if event.key == pygame.K_w:
+
+					print("Up")
+
+				if event.key == pygame.K_s:
+
+					print("Down")
 
 		pygame.display.update()
 
